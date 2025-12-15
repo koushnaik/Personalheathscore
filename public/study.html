@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Study Load Analysis</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="/">Dashboard</a>
+  <a href="/sleep.html">Sleep</a>
+  <a href="/study.html">Study</a>
+  <a href="/water.html">Hydration</a>
+  <a href="/activity.html">Activity</a>
+  <a href="/bmi.html">BMI</a>
+</nav>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Study Load Analysis</h2>
+
+    <p>
+      Studying for long hours without proper breaks can reduce memory retention,
+      increase mental fatigue, and negatively impact sleep and physical health.
+      This tool helps you understand whether your daily study duration is healthy.
+    </p>
+
+    <p>
+      Educational psychology studies show that 6–8 hours of focused study
+      with breaks is optimal for most students. Beyond that, productivity
+      decreases sharply.
+    </p>
+
+    <label><b>Enter your average study hours per day:</b></label>
+    <input type="number" id="study" placeholder="Example: 6.5">
+
+    <button onclick="analyzeStudy()">Analyze Study Load</button>
+
+    <div id="result" style="margin-top:20px;"></div>
+  </div>
+
+</div>
+
+<script>
+function analyzeStudy() {
+  const hours = document.getElementById("study").value;
+
+  if (!hours || hours <= 0) {
+    document.getElementById("result").innerHTML =
+      "<p style='color:red;'>Please enter a valid number of hours.</p>";
+    return;
+  }
+
+  fetch("/study", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: "study=" + hours
+  })
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("result").innerHTML = data +
+      "<hr><p><b>Tip:</b> Use the Pomodoro technique (25 min study + 5 min break) to avoid burnout.</p>";
+  });
+}
+</script>
+
+</body>
+</html>
