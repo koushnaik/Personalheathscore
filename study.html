@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Cycle & Productivity Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+    <h1>Study Cycle & Productivity Tracker</h1>
+    <p>
+        Analyze your daily study habits, focus duration, and break cycles
+        to improve productivity and mental well-being.
+    </p>
+</header>
+
+<!-- ================= INTRO SECTION ================= -->
+<section class="about-section">
+    <h2>Why Study Cycles Matter</h2>
+
+    <p>
+        Studying for long periods without breaks can significantly reduce
+        focus, memory retention, and learning efficiency. Research in
+        cognitive science shows that the brain performs best when study
+        sessions are divided into structured intervals.
+    </p>
+
+    <p>
+        Techniques such as the <b>Pomodoro Method</b> (25–50 minutes of study
+        followed by short breaks) help reduce mental fatigue and improve
+        long-term retention. Proper study cycles also reduce stress and
+        burnout, especially for students.
+    </p>
+
+    <p>
+        This tracker helps you record daily study hours, break duration,
+        and focus level. The system stores your data, compares it with
+        previous records, and provides improvement suggestions.
+    </p>
+</section>
+
+<!-- ================= FORM SECTION ================= -->
+<section class="form-section">
+    <h2>Enter Your Study Details</h2>
+
+    <form action="/cgi-bin/study.cgi" method="get" class="health-form">
+
+        <!-- Total Study Hours -->
+        <div class="form-group">
+            <label for="study_hours">
+                Total Study Duration (in hours)
+            </label>
+            <input
+                type="number"
+                id="study_hours"
+                name="study_hours"
+                step="0.1"
+                placeholder="e.g., 6.5"
+                required
+            >
+            <small>
+                Total number of hours spent studying today.
+            </small>
+        </div>
+
+        <!-- Session Length -->
+        <div class="form-group">
+            <label for="session_length">
+                Average Study Session Length (minutes)
+            </label>
+            <input
+                type="number"
+                id="session_length"
+                name="session_length"
+                step="1"
+                placeholder="e.g., 45"
+                required
+            >
+            <small>
+                Average duration of one continuous study session.
+            </small>
+        </div>
+
+        <!-- Break Duration -->
+        <div class="form-group">
+            <label for="break_time">
+                Average Break Duration (minutes)
+            </label>
+            <input
+                type="number"
+                id="break_time"
+                name="break_time"
+                step="1"
+                placeholder="e.g., 10"
+                required
+            >
+            <small>
+                Average duration of breaks between study sessions.
+            </small>
+        </div>
+
+        <!-- Focus Level -->
+        <div class="form-group">
+            <label for="focus">
+                Focus Level (Self Assessment)
+            </label>
+            <select id="focus" name="focus" required>
+                <option value="">-- Select Focus Level --</option>
+                <option value="Low">Low</option>
+                <option value="Moderate">Moderate</option>
+                <option value="High">High</option>
+                <option value="Excellent">Excellent</option>
+            </select>
+            <small>
+                Subjective measure of concentration during study.
+            </small>
+        </div>
+
+        <!-- Study Type -->
+        <div class="form-group">
+            <label for="study_type">
+                Primary Study Type
+            </label>
+            <select id="study_type" name="study_type" required>
+                <option value="">-- Select Study Type --</option>
+                <option value="Reading">Reading</option>
+                <option value="Problem Solving">Problem Solving</option>
+                <option value="Revision">Revision</option>
+                <option value="Practice Tests">Practice Tests</option>
+                <option value="Project Work">Project Work</option>
+            </select>
+            <small>
+                Main type of study activity performed today.
+            </small>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <button type="submit">
+                Analyze Study Cycle
+            </button>
+        </div>
+
+    </form>
+</section>
+
+<!-- ================= ANALYSIS SECTION ================= -->
+
+
+<!-- ================= PRODUCTIVITY GUIDELINES ================= -->
+<section class="info-section">
+    <h2>Recommended Study Guidelines</h2>
+
+    <table class="info-table">
+        <tr>
+            <th>Parameter</th>
+            <th>Recommended Range</th>
+            <th>Explanation</th>
+        </tr>
+        <tr>
+            <td>Daily Study Time</td>
+            <td>4 – 8 hours</td>
+            <td>Beyond this, productivity often decreases</td>
+        </tr>
+        <tr>
+            <td>Session Length</td>
+            <td>25 – 50 minutes</td>
+            <td>Optimal focus window for most learners</td>
+        </tr>
+        <tr>
+            <td>Break Duration</td>
+            <td>5 – 15 minutes</td>
+            <td>Allows mental recovery between sessions</td>
+        </tr>
+        <tr>
+            <td>Focus Level</td>
+            <td>High / Excellent</td>
+            <td>Indicates effective study habits</td>
+        </tr>
+    </table>
+</section>
+
+<!-- ================= STUDY TIPS ================= -->
+<section class="tips-section">
+    <h2>General Study Improvement Tips</h2>
+
+    <ul>
+        <li>Use structured study techniques like Pomodoro</li>
+        <li>Set clear goals for each study session</li>
+        <li>Eliminate distractions during focus periods</li>
+        <li>Take short breaks to prevent burnout</li>
+        <li>Review concepts regularly instead of cramming</li>
+    </ul>
+
+    <p>
+        The system provides additional personalized recommendations
+        by comparing your current study cycle with historical data.
+    </p>
+</section>
+
+<!-- ================= TECHNICAL DETAILS ================= -->
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>
+        Study Cycle & Productivity Tracker – Part of the Personal Health Calculator Project<br>
+        Developed using HTML, CSS, C++ CGI, and Apache (XAMPP)
+    </p>
+</footer>
+
+</body>
+</html>

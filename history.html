@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health History & Progress Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+    <h1>Health History & Progress Report</h1>
+    <p>
+        View your past health records, analyze progress trends,
+        and receive personalized improvement recommendations.
+    </p>
+</header>
+
+<!-- ================= INTRO ================= -->
+<section class="about-section">
+    <h2>Why Health History Matters</h2>
+
+    <p>
+        Monitoring health is not just about tracking daily values.
+        Real improvement comes from understanding <b>patterns over time</b>.
+        By comparing past and present data, individuals can identify
+        habits that positively or negatively impact their well-being.
+    </p>
+
+    <p>
+        This page aggregates all stored health data from multiple modules
+        including BMI, water intake, sleep cycle, study habits, and
+        physical activity. The system analyzes these records to detect
+        improvements, declines, and areas that require attention.
+    </p>
+
+    <p>
+        All analysis is performed using <b>C++ backend logic</b> through
+        CGI programs. No client-side scripting or databases are used.
+        This demonstrates strong system-level programming concepts.
+    </p>
+</section>
+
+<!-- ================= OVERVIEW ================= -->
+<section class="info-section">
+    <h2>Tracked Health Parameters</h2>
+
+    <table class="info-table">
+        <tr>
+            <th>Module</th>
+            <th>What Is Tracked</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>BMI</td>
+            <td>Weight, Height, BMI Value</td>
+            <td>Monitor body composition changes</td>
+        </tr>
+        <tr>
+            <td>Water Intake</td>
+            <td>Daily water consumption</td>
+            <td>Ensure proper hydration</td>
+        </tr>
+        <tr>
+            <td>Sleep Cycle</td>
+            <td>Sleep duration and quality</td>
+            <td>Improve rest and recovery</td>
+        </tr>
+        <tr>
+            <td>Study Cycle</td>
+            <td>Study hours and break patterns</td>
+            <td>Enhance productivity and focus</td>
+        </tr>
+        <tr>
+            <td>Steps & Exercise</td>
+            <td>Steps walked and exercise activity</td>
+            <td>Maintain physical fitness</td>
+        </tr>
+    </table>
+</section>
+
+<!-- ================= HOW ANALYSIS WORKS ================= -->
+
+
+<!-- ================= ACTION SECTION ================= -->
+<section class="form-section">
+    <h2>Generate Your Health Report</h2>
+
+    <p>
+        Click the button below to generate a comprehensive health
+        history report. The report will include:
+    </p>
+
+    <ul>
+        <li>Latest and previous records</li>
+        <li>Progress comparison</li>
+        <li>Detected health trends</li>
+        <li>Personalized improvement suggestions</li>
+    </ul>
+
+    <form action="/cgi-bin/history.cgi" method="get" class="health-form">
+        <div class="form-group">
+            <button type="submit">
+                Generate Health History Report
+            </button>
+        </div>
+    </form>
+</section>
+
+<!-- ================= SAMPLE INSIGHTS ================= -->
+<section class="tips-section">
+    <h2>Example Health Insights</h2>
+
+    <ul>
+        <li>“Your BMI has improved steadily over the past two weeks.”</li>
+        <li>“Water intake is below recommended levels on most days.”</li>
+        <li>“Sleep duration is inconsistent; aim for a fixed bedtime.”</li>
+        <li>“Study hours are high with insufficient breaks—risk of burnout.”</li>
+        <li>“Physical activity levels have increased compared to last week.”</li>
+    </ul>
+
+    <p>
+        These insights are dynamically generated based on your stored data
+        and may change as new records are added.
+    </p>
+</section>
+
+<!-- ================= TECHNICAL DETAILS ================= -->
+
+<!-- ================= FUTURE EXTENSIONS ================= -->
+<section class="info-section">
+    <h2>Possible Future Enhancements</h2>
+
+    <ul>
+        <li>Graphical visualization of health trends</li>
+        <li>Weekly and monthly summary reports</li>
+        <li>Downloadable health reports (PDF/CSV)</li>
+        <li>User-specific profiles and authentication</li>
+        <li>Mobile-friendly interface</li>
+    </ul>
+
+    <p>
+        These features can be added without changing the core backend
+        architecture of the system.
+    </p>
+</section>
+<h2>Health Progress Graphs</h2>
+
+<div class="graph-box">
+  <canvas id="bmiChart"></canvas>
+</div>
+
+<div class="graph-box">
+  <canvas id="waterChart"></canvas>
+</div>
+
+<div class="graph-box">
+  <canvas id="sleepChart"></canvas>
+</div>
+
+<div class="graph-box">
+  <canvas id="studyChart"></canvas>
+</div>
+
+<div class="graph-box">
+  <canvas id="stepsChart"></canvas>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>
+        Health History & Progress Report – Part of the Personal Health Calculator Project<br>
+        Developed using HTML, CSS, C++ CGI, and Apache (XAMPP)
+    </p>
+</footer>
+<script>
+fetch("/cgi-bin/history_graph.cgi")
+.then(res => res.json())
+.then(data => {
+
+  function draw(id, label, values, color) {
+    new Chart(document.getElementById(id), {
+      type: "line",
+      data: {
+        labels: values.map(v => v.date),
+        datasets: [{
+          label: label,
+          data: values.map(v => v.value),
+          borderColor: color,
+          backgroundColor: color.replace("1)", "0.2)"),
+          tension: 0.3
+        }]
+      }
+    });
+  }
+
+  draw("bmiChart", "BMI", data.bmi, "rgba(0,0,128,1)");
+  draw("waterChart", "Water Intake", data.water, "rgba(0,102,204,1)");
+  draw("sleepChart", "Sleep Score", data.sleep, "rgba(0,51,102,1)");
+  draw("studyChart", "Study Score", data.study, "rgba(0,0,0,1)");
+  draw("stepsChart", "Steps", data.steps, "rgba(25,25,112,1)");
+});
+</script>
+
+</body>
+</html>

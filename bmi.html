@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+    <h1>Body Mass Index (BMI) Calculator</h1>
+    <p>
+        Calculate, analyze, and track your Body Mass Index using
+        a server-side C++ CGI backend.
+    </p>
+</header>
+
+<!-- ================= INTRO SECTION ================= -->
+<section class="about-section">
+    <h2>What is BMI?</h2>
+    <p>
+        Body Mass Index (BMI) is a widely used health metric that
+        estimates body fat based on an individual's weight and height.
+        It is commonly used by healthcare professionals as a screening
+        tool to identify potential weight-related health risks.
+    </p>
+
+    <p>
+        BMI does not directly measure body fat, but it provides a
+        reliable approximation for most individuals. Based on BMI,
+        people are categorized as underweight, normal weight,
+        overweight, or obese.
+    </p>
+
+    <p>
+        This calculator allows you to compute your BMI and
+        automatically stores your results for future comparison.
+        Over time, the system analyzes trends and provides
+        personalized health suggestions.
+    </p>
+</section>
+
+<!-- ================= FORM SECTION ================= -->
+<section class="form-section">
+    <h2>Enter Your Details</h2>
+
+    <form action="/cgi-bin/bmi.cgi" method="get" class="health-form">
+
+        <!-- Weight Input -->
+        <div class="form-group">
+            <label for="weight">
+                Weight (in kilograms)
+            </label>
+            <input
+                type="number"
+                id="weight"
+                name="weight"
+                step="0.1"
+                placeholder="e.g., 70.5"
+                required
+            >
+            <small>
+                Enter your current body weight in kilograms.
+            </small>
+        </div>
+
+        <!-- Height Input -->
+        <div class="form-group">
+            <label for="height">
+                Height (in centi meters)
+            </label>
+            <input
+                type="number"
+                id="height"
+                name="height"
+                step="0.01"
+                placeholder="e.g., 1.75"
+                required
+            >
+            <small>
+                Enter your height in meters (for example, 1.70).
+            </small>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <button type="submit">
+                Calculate BMI
+            </button>
+        </div>
+
+    </form>
+</section>
+
+<!-- ================= BMI CATEGORIES ================= -->
+<section class="info-section">
+    <h2>BMI Categories</h2>
+
+    <table class="info-table">
+        <tr>
+            <th>BMI Range</th>
+            <th>Category</th>
+            <th>Health Interpretation</th>
+        </tr>
+        <tr>
+            <td>Below 18.5</td>
+            <td>Underweight</td>
+            <td>May indicate nutritional deficiency or other health issues</td>
+        </tr>
+        <tr>
+            <td>18.5 – 24.9</td>
+            <td>Normal</td>
+            <td>Associated with lower risk of chronic diseases</td>
+        </tr>
+        <tr>
+            <td>25.0 – 29.9</td>
+            <td>Overweight</td>
+            <td>May increase risk of cardiovascular problems</td>
+        </tr>
+        <tr>
+            <td>30.0 and above</td>
+            <td>Obese</td>
+            <td>High risk of serious health conditions</td>
+        </tr>
+    </table>
+</section>
+
+<!-- ================= HOW SYSTEM WORKS ================= -->
+
+
+<!-- ================= HEALTH TIPS ================= -->
+<section class="tips-section">
+    <h2>General BMI Improvement Tips</h2>
+
+    <ul>
+        <li>Maintain a balanced diet with adequate nutrients</li>
+        <li>Engage in regular physical activity</li>
+        <li>Monitor weight changes consistently</li>
+        <li>Avoid crash dieting or extreme eating habits</li>
+        <li>Consult healthcare professionals when necessary</li>
+    </ul>
+
+    <p>
+        The system provides additional personalized tips based on
+        your BMI category and progress history.
+    </p>
+</section>
+
+<!-- ================= TECHNICAL DETAILS ================= -->
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>
+        BMI Calculator – Part of the Personal Health Calculator Project<br>
+        Developed using HTML, CSS, C++ CGI, and Apache (XAMPP)
+    </p>
+</footer>
+
+</body>
+</html>

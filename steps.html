@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steps & Exercise Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+    <h1>Steps & Exercise Tracker</h1>
+    <p>
+        Monitor your daily physical activity, track step counts,
+        and receive personalized fitness recommendations.
+    </p>
+</header>
+
+<!-- ================= INTRO SECTION ================= -->
+<section class="about-section">
+    <h2>Importance of Physical Activity</h2>
+
+    <p>
+        Regular physical activity is one of the most important factors
+        for maintaining a healthy lifestyle. Daily movement helps improve
+        cardiovascular health, strengthen muscles, regulate body weight,
+        and enhance mental well-being.
+    </p>
+
+    <p>
+        Walking is one of the simplest and most effective forms of exercise.
+        Health organizations recommend a minimum of <b>8,000 to 10,000 steps
+        per day</b> for adults to maintain good physical fitness.
+    </p>
+
+    <p>
+        This tracker allows you to record your daily steps and exercise
+        activity. The system stores your data, compares it with previous
+        records, and provides improvement suggestions to help you stay
+        consistent with your fitness goals.
+    </p>
+</section>
+
+<!-- ================= FORM SECTION ================= -->
+<section class="form-section">
+    <h2>Enter Your Daily Activity</h2>
+
+    <form action="/cgi-bin/steps.cgi" method="get" class="health-form">
+
+        <!-- Steps Count -->
+        <div class="form-group">
+            <label for="steps">
+                Total Steps Walked Today
+            </label>
+            <input
+                type="number"
+                id="steps"
+                name="steps"
+                placeholder="e.g., 7500"
+                required
+            >
+            <small>
+                Enter the total number of steps recorded by your device.
+            </small>
+        </div>
+
+        <!-- Exercise Type -->
+        <div class="form-group">
+            <label for="exercise">
+                Primary Exercise Performed
+            </label>
+            <select id="exercise" name="exercise" required>
+                <option value="">-- Select Exercise Type --</option>
+                <option value="Walking">Walking</option>
+                <option value="Running">Running</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Gym Workout">Gym Workout</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Sports">Sports</option>
+            </select>
+            <small>
+                Choose the primary physical activity you performed today.
+            </small>
+        </div>
+
+        <!-- Exercise Duration -->
+        <div class="form-group">
+            <label for="duration">
+                Exercise Duration (minutes)
+            </label>
+            <input
+                type="number"
+                id="duration"
+                name="duration"
+                step="1"
+                placeholder="e.g., 45"
+                required
+            >
+            <small>
+                Total time spent performing the selected activity.
+            </small>
+        </div>
+
+        <!-- Intensity -->
+        <div class="form-group">
+            <label for="intensity">
+                Exercise Intensity
+            </label>
+            <select id="intensity" name="intensity" required>
+                <option value="">-- Select Intensity --</option>
+                <option value="Low">Low</option>
+                <option value="Moderate">Moderate</option>
+                <option value="High">High</option>
+            </select>
+            <small>
+                Subjective intensity level of your exercise session.
+            </small>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <button type="submit">
+                Analyze Physical Activity
+            </button>
+        </div>
+
+    </form>
+</section>
+
+<!-- ================= ANALYSIS SECTION ================= -->
+<section class="info-section">
+    <h2>How Activity Is Analyzed</h2>
+
+    <p>
+        Once you submit your activity details, the backend C++ CGI program
+        processes the information using the following steps:
+    </p>
+
+    <ul>
+        <li>Validates the entered step count and duration values</li>
+        <li>Compares step count with recommended daily standards</li>
+        <li>Analyzes exercise duration and intensity</li>
+        <li>Stores the record using file handling</li>
+        <li>Reads previous activity data for comparison</li>
+        <li>Generates improvement suggestions based on trends</li>
+    </ul>
+
+    <p>
+        All calculations and comparisons are performed on the server side
+        using C++ to demonstrate backend processing and system-level
+        programming concepts.
+    </p>
+</section>
+
+<!-- ================= FITNESS GUIDELINES ================= -->
+<section class="info-section">
+    <h2>Daily Activity Guidelines</h2>
+
+    <table class="info-table">
+        <tr>
+            <th>Activity Level</th>
+            <th>Daily Steps</th>
+            <th>Health Interpretation</th>
+        </tr>
+        <tr>
+            <td>Sedentary</td>
+            <td>Below 5,000</td>
+            <td>Low activity, increased health risk</td>
+        </tr>
+        <tr>
+            <td>Lightly Active</td>
+            <td>5,000 – 7,499</td>
+            <td>Some activity but improvement recommended</td>
+        </tr>
+        <tr>
+            <td>Active</td>
+            <td>7,500 – 9,999</td>
+            <td>Meets basic fitness requirements</td>
+        </tr>
+        <tr>
+            <td>Highly Active</td>
+            <td>10,000+</td>
+            <td>Excellent activity level</td>
+        </tr>
+    </table>
+</section>
+
+<!-- ================= HEALTH TIPS ================= -->
+<section class="tips-section">
+    <h2>General Fitness Tips</h2>
+
+    <ul>
+        <li>Increase step count gradually to avoid injury</li>
+        <li>Include both cardio and strength exercises</li>
+        <li>Maintain proper hydration during workouts</li>
+        <li>Warm up before and cool down after exercise</li>
+        <li>Ensure adequate rest and recovery</li>
+    </ul>
+
+    <p>
+        Personalized tips are generated by the system after comparing
+        your current activity data with previous records.
+    </p>
+</section>
+
+<!-- ================= TECHNICAL DETAILS ================= -->
+<section class="tech-section">
+    <h2>Technical Implementation</h2>
+
+    <p>
+        This page is part of a server-driven health tracking system.
+        User inputs are sent to a C++ CGI program which:
+    </p>
+
+    <ul>
+        <li>Reads input values using environment variables</li>
+        <li>Processes activity analysis using C++ logic</li>
+        <li>Stores data persistently in text files</li>
+        <li>Generates dynamic HTML output</li>
+    </ul>
+
+    <p>
+        This approach avoids client-side scripting and demonstrates
+        strong understanding of backend development using C++.
+    </p>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>
+        Steps & Exercise Tracker – Part of the Personal Health Calculator Project<br>
+        Developed using HTML, CSS, C++ CGI, and Apache (XAMPP)
+    </p>
+</footer>
+
+</body>
+</html>

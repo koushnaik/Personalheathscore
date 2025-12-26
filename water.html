@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Water Intake Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+    <h1>Daily Water Intake Tracker</h1>
+    <p>
+        Monitor your hydration levels, compare daily water intake
+        with recommended values, and receive personalized hydration tips.
+    </p>
+</header>
+
+<!-- ================= INTRO SECTION ================= -->
+<section class="about-section">
+    <h2>Why Hydration Is Important</h2>
+
+    <p>
+        Water is essential for nearly every function in the human body.
+        It helps regulate body temperature, transport nutrients,
+        remove waste, lubricate joints, and maintain overall cellular health.
+    </p>
+
+    <p>
+        Even mild dehydration can negatively affect concentration,
+        physical performance, digestion, and mood. Long-term inadequate
+        water intake may contribute to fatigue, headaches, and kidney problems.
+    </p>
+
+    <p>
+        This water intake tracker helps you record your daily water
+        consumption, compare it with recommended hydration levels,
+        and observe trends over time using stored data.
+    </p>
+</section>
+
+<!-- ================= FORM SECTION ================= -->
+<section class="form-section">
+    <h2>Enter Your Water Intake Details</h2>
+
+    <form action="/cgi-bin/water.cgi" method="get" class="health-form">
+
+        <!-- Body Weight -->
+        <div class="form-group">
+            <label for="weight">
+                Body Weight (in kilograms)
+            </label>
+            <input
+                type="number"
+                id="weight"
+                name="weight"
+                step="0.1"
+                placeholder="e.g., 68.5"
+                required
+            >
+            <small>
+                Body weight is used to calculate recommended water intake.
+            </small>
+        </div>
+
+        <!-- Glasses Consumed -->
+        <div class="form-group">
+            <label for="glasses">
+                Number of Glasses Consumed Today
+            </label>
+            <input
+                type="number"
+                id="glasses"
+                name="glasses"
+                placeholder="e.g., 8"
+                required
+            >
+            <small>
+                One glass is assumed to be approximately 250 ml.
+            </small>
+        </div>
+
+        <!-- Physical Activity Level -->
+        <div class="form-group">
+            <label for="activity">
+                Physical Activity Level
+            </label>
+            <select id="activity" name="activity" required>
+                <option value="">-- Select Activity Level --</option>
+                <option value="Low">Low (Sedentary)</option>
+                <option value="Moderate">Moderate</option>
+                <option value="High">High (Active / Athlete)</option>
+            </select>
+            <small>
+                Higher activity levels increase water requirements.
+            </small>
+        </div>
+
+        <!-- Climate -->
+        <div class="form-group">
+            <label for="climate">
+                Climate Conditions
+            </label>
+            <select id="climate" name="climate" required>
+                <option value="">-- Select Climate --</option>
+                <option value="Cool">Cool</option>
+                <option value="Normal">Normal</option>
+                <option value="Hot">Hot / Humid</option>
+            </select>
+            <small>
+                Hot or humid weather increases fluid loss.
+            </small>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <button type="submit">
+                Analyze Water Intake
+            </button>
+        </div>
+
+    </form>
+</section>
+
+<!-- ================= ANALYSIS SECTION ================= -->
+
+
+<!-- ================= HYDRATION GUIDELINES ================= -->
+<section class="info-section">
+    <h2>General Hydration Guidelines</h2>
+
+    <table class="info-table">
+        <tr>
+            <th>Body Weight</th>
+            <th>Recommended Intake</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>50 – 60 kg</td>
+            <td>2.0 – 2.5 liters</td>
+            <td>Increase during physical activity</td>
+        </tr>
+        <tr>
+            <td>60 – 75 kg</td>
+            <td>2.5 – 3.0 liters</td>
+            <td>Most adults fall in this range</td>
+        </tr>
+        <tr>
+            <td>75 – 90 kg</td>
+            <td>3.0 – 3.5 liters</td>
+            <td>May require more in hot climates</td>
+        </tr>
+        <tr>
+            <td>90+ kg</td>
+            <td>3.5+ liters</td>
+            <td>Monitor hydration closely</td>
+        </tr>
+    </table>
+</section>
+
+<!-- ================= HYDRATION TIPS ================= -->
+<section class="tips-section">
+    <h2>General Hydration Tips</h2>
+
+    <ul>
+        <li>Drink water regularly throughout the day</li>
+        <li>Do not wait until you feel thirsty</li>
+        <li>Increase intake during exercise or hot weather</li>
+        <li>Carry a reusable water bottle</li>
+        <li>Limit sugary and caffeinated beverages</li>
+    </ul>
+
+    <p>
+        Personalized hydration tips will be generated automatically
+        based on your intake history and daily requirements.
+    </p>
+</section>
+
+<!-- ================= TECHNICAL DETAILS ================= -->
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>
+        Daily Water Intake Tracker – Part of the Personal Health Calculator Project<br>
+        Developed using HTML, CSS, C++ CGI, and Apache (XAMPP)
+    </p>
+</footer>
+
+</body>
+</html>

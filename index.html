@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Health Calculator & Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<header class="main-header">
+    <h1>Personal Health Calculator & Tracker</h1>
+    <p>
+        A web-based personal health monitoring system built using
+        <b>C++ </b> and <b>HTML/CSS</b>.
+    </p>
+</header>
+
+<section class="dashboard">
+    <h2>Health Dashboard</h2>
+
+    <div class="dashboard-grid">
+
+        <!-- BMI -->
+        <div class="card">
+            <h3>BMI Calculator</h3>
+            <p>
+                Calculates Body Mass Index using height and weight.
+                Helps determine whether you are underweight, normal,
+                overweight, or obese.
+            </p>
+            <a href="bmi.html">Open BMI Calculator</a>
+        </div>
+
+        <!-- WATER -->
+        <div class="card">
+            <h3>Water Intake Tracker</h3>
+            <p>
+                Tracks your daily water consumption and compares it with
+                recommended intake based on body weight.
+            </p>
+            <a href="/water.html">Track Water Intake</a>
+        </div>
+
+        <!-- SLEEP -->
+        <div class="card">
+            <h3>Sleep Cycle Analyzer</h3>
+            <p>
+                Analyzes sleep duration and quality and provides
+                recommendations for better rest and recovery.
+            </p>
+            <a href="sleep.html">Analyze Sleep Cycle</a>
+        </div>
+
+        <!-- STUDY -->
+        <div class="card">
+            <h3>Study Cycle Tracker</h3>
+            <p>
+                Helps track study hours and break intervals to improve
+                focus, productivity, and mental health.
+            </p>
+            <a href="study.html">Track Study Cycle</a>
+        </div>
+
+        <!-- STEPS -->
+        <div class="card">
+            <h3>Steps & Exercise</h3>
+            <p>
+                Monitors daily steps and physical activity and compares
+                them with global fitness standards.
+            </p>
+            <a href="steps.html">Track Steps</a>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="card">
+            <h3>Health History & Report</h3>
+            <p>
+                Displays previous health records, progress trends,
+                and personalized improvement suggestions.
+            </p>
+            <a href="/history.html">Health History</a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="about-section">
+    <h2>About This Application</h2>
+    <p>
+        This application helps individuals monitor and improve their daily
+        health habits by tracking important parameters such as body mass index,
+        water intake, sleep cycle, physical activity, and study productivity.
+    </p>
+
+    <p>
+        Unlike traditional web applications that rely on JavaScript or databases,
+        this system uses <b>C++ backend logic</b> through CGI programs running
+        on an Apache server. All calculations, comparisons, and data storage
+        are handled server-side using file handling.
+    </p>
+
+    <p>
+        Each time the user enters data, the system stores it securely and
+        compares it with previous records to generate meaningful insights
+        and short improvement tips.
+    </p>
+</section>
+
+
+<footer class="footer">
+    <p>
+        Project using C++ .<br>
+        Designed to demonstrate backend logic, file handling, and system design.
+    </p>
+</footer>
+
+</body>
+</html>

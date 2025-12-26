@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sleep Cycle Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+    <h1>Sleep Cycle Analyzer</h1>
+    <p>
+        Analyze your daily sleep habits, understand sleep quality,
+        and receive personalized recommendations for better rest.
+    </p>
+</header>
+
+<!-- ================= INTRO SECTION ================= -->
+<section class="about-section">
+    <h2>Why Sleep Matters</h2>
+    <p>
+        Sleep plays a crucial role in maintaining physical health,
+        mental clarity, emotional stability, and overall well-being.
+        Poor sleep habits can lead to decreased concentration,
+        weakened immunity, and long-term health issues.
+    </p>
+
+    <p>
+        Adults typically require between <b>7 to 9 hours of sleep</b>
+        per night. Both insufficient and excessive sleep can negatively
+        impact health. This tool helps you analyze your sleep duration
+        and identify patterns over time.
+    </p>
+
+    <p>
+        This system stores your daily sleep data and compares it with
+        previous records to determine whether your sleep quality is
+        improving, declining, or remaining stable.
+    </p>
+</section>
+
+<!-- ================= FORM SECTION ================= -->
+<section class="form-section">
+    <h2>Enter Your Sleep Details</h2>
+
+    <form action="/cgi-bin/sleep.cgi" method="get" class="health-form">
+
+        <!-- Sleep Hours -->
+        <div class="form-group">
+            <label for="hours">
+                Total Sleep Duration (in hours)
+            </label>
+            <input
+                type="number"
+                id="hours"
+                name="sleep_hours"
+                step="0.1"
+                placeholder="e.g., 7.5"
+                required
+            >
+            <small>
+                Include total time slept excluding interruptions.
+            </small>
+        </div>
+
+        <!-- Bed Time -->
+        <div class="form-group">
+            <label for="bedtime">
+                Bedtime (24-hour format)
+            </label>
+            <input
+                type="number"
+                id="bedtime"
+                name="bedtime"
+                min="0"
+                max="23"
+                required
+            >
+            <small>
+                Time at which you went to bed.
+            </small>
+        </div>
+
+        <!-- Wake Time -->
+        <div class="form-group">
+            <label for="waketime">
+                Wake-up Time (24-hour format)
+            </label>
+            <input
+                type="number"
+                id="waketime"
+                name="waketime"
+                 min="0"
+                max="23"
+                required
+            >
+            <small>
+                Time at which you woke up.
+            </small>
+        </div>
+
+        <!-- Sleep Quality -->
+        <div class="form-group">
+            <label for="quality">
+                Sleep Quality (Self Assessment)
+            </label>
+            <select id="quality" name="quality" required>
+                <option value="">-- Select --</option>
+                <option value="Poor">Poor</option>
+                <option value="Average">Average</option>
+                <option value="Good">Good</option>
+                <option value="Excellent">Excellent</option>
+            </select>
+            <small>
+                Subjective assessment based on how rested you feel.
+            </small>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <button type="submit">
+                Analyze Sleep Cycle
+            </button>
+        </div>
+
+    </form>
+</section>
+
+<!-- ================= INFO SECTION ================= -->
+
+<!-- ================= SLEEP TIPS SECTION ================= -->
+<section class="tips-section">
+    <h2>Healthy Sleep Tips</h2>
+
+    <ul>
+        <li>Maintain a consistent sleep schedule every day</li>
+        <li>Avoid screens at least 1 hour before bedtime</li>
+        <li>Limit caffeine intake after evening hours</li>
+        <li>Create a dark, quiet, and comfortable sleeping environment</li>
+        <li>Engage in light physical activity during the day</li>
+    </ul>
+
+    <p>
+        These tips are general guidelines. Personalized suggestions
+        will be generated automatically based on your stored sleep data.
+    </p>
+</section>
+
+<!-- ================= TECH SECTION ================= -->
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>
+        Sleep Cycle Analyzer – Part of the Personal Health Calculator Project<br>
+        Developed using HTML, CSS, C++ CGI, and Apache (XAMPP)
+    </p>
+</footer>
+
+</body>
+</html>
